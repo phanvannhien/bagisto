@@ -1,0 +1,225 @@
+//customer account pages layouts
+.account-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 5.5%;
+    margin-bottom: 5.5%;
+
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: flex-start;
+        width: 20%;
+        height: 100%;
+    }
+
+    .menu-block {
+        margin-bottom: 30px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .menu-block-title {
+            padding-bottom: 10px;
+            font-size: 18px;
+
+            .right {
+                display: none;
+            }
+        }
+
+        .menubar {
+            border: 1px solid $border-color;
+            color: $font-light;
+            position: relative;
+
+            li {
+                width: 95%;
+                height: 50px;
+                margin-left: 5%;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                border-bottom: 1px solid $border-color;
+                text-align: center;
+
+                a {
+                    color: $other-font-color;
+                    width: 100%;
+                    text-align: left;
+                }
+
+                .icon {
+                    display: none;
+                    position: absolute;
+                    right: 12px;
+                }
+            }
+
+            li:first-child {
+                border-top: none;
+            }
+
+            li:last-child {
+                border-bottom: none;
+            }
+
+            li.active {
+                a {
+                    color: $brand-color;
+                }
+
+                .icon {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    //customer account pages content
+    .account-layout {
+        margin-left: 40px;
+        width: 80%;
+
+        .account-head {
+
+            .back-icon {
+                display: none;
+            }
+        }
+
+        .responsive-empty {
+            display: none;
+        }
+    }
+}
+
+//Account content inside a table
+.account-table-content {
+    color: $font-dark;
+    margin-top: 1.4%;
+
+    table {
+        width: 100%;
+
+        tbody {
+            tr {
+                height: 45px;
+
+                td {
+                    width: 250px;
+                }
+            }
+        }
+    }
+}
+
+
+//customer account page responsive layout
+@media only screen and (max-width: 770px) {
+    .account-content {
+        flex-direction: column;
+
+        .sidebar {
+            width: 100%;
+
+            .menu-block {
+                .menu-block-title {
+                    height: 50px;
+                    padding-top: 13px;
+                    border-bottom: 1px solid $border-color;
+                    border-top: 1px solid $border-color;
+
+                    .right {
+                        display: block;
+                        float: right;
+                        align-self: center;
+                    }
+                }
+
+                .menubar {
+                    border: 0;
+                    display: none;
+
+                    > li {
+                        margin-left: 0;
+                        width: 100%;
+
+                        .icon {
+                            right: 0px;
+                        }
+                    }
+
+                    > li:last-child {
+                        border-bottom: 1px solid $border-color;
+                    }
+                }
+            }
+        }
+
+        .account-layout {
+            margin-left: 0%;
+            margin-top: 20px;
+            width: 100%;
+
+            .account-head  {
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid $border-color;
+                border-top: 1px solid $border-color;
+                height: 50px;
+                margin-top: 10px;
+
+                .account-action {
+                    margin-top: 12px;
+                    margin-left: 15px;
+                }
+
+                .back-icon {
+                    display: block;
+                }
+
+                span {
+                    margin-top: 13px;
+                    font-size: 18px;
+                }
+
+                .horizontal-rule {
+                    display: none;
+                }
+            }
+
+            .account-table-content {
+                margin-top: 2%;
+
+                table tbody tr {
+                    height: 70px;
+
+                    td {
+                        display: block;
+                    }
+                }
+
+                .address-holder {
+                    justify-content: center;
+                }
+            }
+        }
+
+        .account-items-list , .edit-form {
+            margin-top: 20px;
+
+            .responsive-empty {
+                display: block;
+            }
+        }
+
+        .control-group .control {
+            width: 100%;
+        }
+    }
+}
