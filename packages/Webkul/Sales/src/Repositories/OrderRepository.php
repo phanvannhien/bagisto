@@ -3,17 +3,6 @@
 namespace Webkul\Sales\Repositories;
 
 use Illuminate\Container\Container as App;
-<<<<<<< HEAD
-use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\DB;
-use Webkul\Core\Eloquent\Repository;
-use Webkul\Sales\Contracts\Order;
-use Webkul\Sales\Repositories\OrderItemRepository;
-use Webkul\Core\Models\CoreConfig;
-
-/**
- * Order Reposotory
-=======
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Webkul\Core\Eloquent\Repository;
@@ -23,7 +12,6 @@ use Webkul\Sales\Models\Order as OrderModel;
 
 /**
  * Order Repository
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
  *
  * @author    Jitendra Singh <jitendra@webkul.com>
  * @copyright 2018 Webkul Software Pvt Ltd (http://www.webkul.com)
@@ -47,26 +35,16 @@ class OrderRepository extends Repository
     /**
      * Create a new repository instance.
      *
-<<<<<<< HEAD
-     * @param  Webkul\Sales\Repositories\OrderItemRepository                 $orderItemRepository
-     * @param  Webkul\Sales\Repositories\DownloadableLinkPurchasedRepository $downloadableLinkPurchasedRepository
-=======
      * @param Webkul\Sales\Repositories\OrderItemRepository                 $orderItemRepository
      * @param Webkul\Sales\Repositories\DownloadableLinkPurchasedRepository $downloadableLinkPurchasedRepository
      *
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
      * @return void
      */
     public function __construct(
         OrderItemRepository $orderItemRepository,
         DownloadableLinkPurchasedRepository $downloadableLinkPurchasedRepository,
         App $app
-<<<<<<< HEAD
-    )
-    {
-=======
     ) {
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
         $this->orderItemRepository = $orderItemRepository;
 
         $this->downloadableLinkPurchasedRepository = $downloadableLinkPurchasedRepository;
@@ -80,21 +58,14 @@ class OrderRepository extends Repository
      * @return Mixed
      */
 
-<<<<<<< HEAD
-    function model()
-=======
     public function model()
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
     {
         return Order::class;
     }
 
     /**
      * @param array $data
-<<<<<<< HEAD
-=======
      *
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
      * @return mixed
      */
     public function create(array $data)
@@ -125,23 +96,15 @@ class OrderRepository extends Repository
 
             $order->payment()->create($data['payment']);
 
-<<<<<<< HEAD
-            if (isset($data['shipping_address']))
-                $order->addresses()->create($data['shipping_address']);
-=======
             if (isset($data['shipping_address'])) {
                 $order->addresses()->create($data['shipping_address']);
             }
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 
             $order->addresses()->create($data['billing_address']);
 
             foreach ($data['items'] as $item) {
-<<<<<<< HEAD
-=======
                 Event::fire('checkout.order.orderitem.save.before', $data);
 
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                 $orderItem = $this->orderItemRepository->create(array_merge($item, ['order_id' => $order->id]));
 
                 if (isset($item['children']) && $item['children']) {
@@ -153,11 +116,8 @@ class OrderRepository extends Repository
                 $this->orderItemRepository->manageInventory($orderItem);
 
                 $this->downloadableLinkPurchasedRepository->saveLinks($orderItem, 'available');
-<<<<<<< HEAD
-=======
 
                 Event::fire('checkout.order.orderitem.save.after', $data);
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
             }
 
             Event::fire('checkout.order.save.after', $order);
@@ -174,36 +134,23 @@ class OrderRepository extends Repository
 
     /**
      * @param int $orderId
-<<<<<<< HEAD
-=======
      *
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
      * @return mixed
      */
     public function cancel($orderId)
     {
         $order = $this->findOrFail($orderId);
 
-<<<<<<< HEAD
-        if (! $order->canCancel())
-            return false;
-=======
         if (! $order->canCancel()) {
             return false;
         }
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 
         Event::fire('sales.order.cancel.before', $order);
 
         foreach ($order->items as $item) {
-<<<<<<< HEAD
-            if (! $item->qty_to_cancel)
-                continue;
-=======
             if (! $item->qty_to_cancel) {
                 continue;
             }
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 
             $orderItems = [];
 
@@ -214,20 +161,12 @@ class OrderRepository extends Repository
             } else {
                 $orderItems[] = $item;
             }
-<<<<<<< HEAD
-    
-            foreach ($orderItems as $orderItem) {
-                if ($orderItem->product)
-                    $this->orderItemRepository->returnQtyToProductInventory($orderItem);
-    
-=======
 
             foreach ($orderItems as $orderItem) {
                 if ($orderItem->product) {
                     $this->orderItemRepository->returnQtyToProductInventory($orderItem);
                 }
 
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                 if ($orderItem->qty_ordered) {
                     $orderItem->qty_canceled += $orderItem->qty_to_cancel;
                     $orderItem->save();
@@ -259,16 +198,6 @@ class OrderRepository extends Repository
     {
         $config = new CoreConfig();
 
-<<<<<<< HEAD
-        $invoiceNumberPrefix = $config->where('code','=',"sales.orderSettings.order_number.order_number_prefix")->first()
-            ? $config->where('code','=',"sales.orderSettings.order_number.order_number_prefix")->first()->value : false;
-
-        $invoiceNumberLength = $config->where('code','=',"sales.orderSettings.order_number.order_number_length")->first()
-            ? $config->where('code','=',"sales.orderSettings.order_number.order_number_length")->first()->value : false;
-
-        $invoiceNumberSuffix = $config->where('code','=',"sales.orderSettings.order_number.order_number_suffix")->first()
-            ? $config->where('code','=',"sales.orderSettings.order_number.order_number_suffix")->first()->value: false;
-=======
         foreach ([  'Prefix' => 'prefix',
                     'Length' => 'length',
                     'Suffix' => 'suffix', ] as
@@ -277,18 +206,12 @@ class OrderRepository extends Repository
                     $var = "invoiceNumber{$varSuffix}";
                     $$var = $config->where('code', '=', "sales.orderSettings.order_number.order_number_{$confKey}")->first() ?: false;
                 }
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 
         $lastOrder = $this->model->orderBy('id', 'desc')->limit(1)->first();
         $lastId = $lastOrder ? $lastOrder->id : 0;
 
-<<<<<<< HEAD
-        if ($invoiceNumberLength && ( $invoiceNumberPrefix || $invoiceNumberSuffix) ) {
-            $invoiceNumber = $invoiceNumberPrefix . sprintf("%0{$invoiceNumberLength}d", 0) . ($lastId + 1) . $invoiceNumberSuffix;
-=======
         if ($invoiceNumberLength && ($invoiceNumberPrefix || $invoiceNumberSuffix)) {
             $invoiceNumber = ($invoiceNumberPrefix->value) . sprintf("%0{$invoiceNumberLength->value}d", 0) . ($lastId + 1) . ($invoiceNumberSuffix->value);
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
         } else {
             $invoiceNumber = $lastId + 1;
         }
@@ -298,21 +221,14 @@ class OrderRepository extends Repository
 
     /**
      * @param mixed $order
-<<<<<<< HEAD
-=======
      *
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
      * @return void
      */
     public function isInCompletedState($order)
     {
         $totalQtyOrdered = $totalQtyInvoiced = $totalQtyShipped = $totalQtyRefunded = $totalQtyCanceled = 0;
 
-<<<<<<< HEAD
-        foreach ($order->items()->get()  as $item) {
-=======
         foreach ($order->items()->get() as $item) {
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
             $totalQtyOrdered += $item->qty_ordered;
             $totalQtyInvoiced += $item->qty_invoiced;
 
@@ -328,24 +244,16 @@ class OrderRepository extends Repository
 
         if ($totalQtyOrdered != ($totalQtyRefunded + $totalQtyCanceled)
             && $totalQtyOrdered == $totalQtyInvoiced + $totalQtyCanceled
-<<<<<<< HEAD
-            && $totalQtyOrdered == $totalQtyShipped + $totalQtyRefunded + $totalQtyCanceled)
-            return true;
-=======
             && $totalQtyOrdered == $totalQtyShipped + $totalQtyRefunded + $totalQtyCanceled) {
             return true;
         }
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 
         return false;
     }
 
     /**
      * @param mixed $order
-<<<<<<< HEAD
-=======
      *
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
      * @return void
      */
     public function isInCanceledState($order)
@@ -362,21 +270,14 @@ class OrderRepository extends Repository
 
     /**
      * @param mixed $order
-<<<<<<< HEAD
-=======
      *
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
      * @return void
      */
     public function isInClosedState($order)
     {
         $totalQtyOrdered = $totalQtyRefunded = $totalQtyCanceled = 0;
 
-<<<<<<< HEAD
-        foreach ($order->items()->get()  as $item) {
-=======
         foreach ($order->items()->get() as $item) {
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
             $totalQtyOrdered += $item->qty_ordered;
             $totalQtyRefunded += $item->qty_refunded;
             $totalQtyCanceled += $item->qty_canceled;
@@ -387,25 +288,13 @@ class OrderRepository extends Repository
 
     /**
      * @param mixed $order
-<<<<<<< HEAD
-=======
      *
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
      * @return void
      */
     public function updateOrderStatus($order)
     {
         $status = 'processing';
 
-<<<<<<< HEAD
-        if ($this->isInCompletedState($order))
-            $status = 'completed';
-
-        if ($this->isInCanceledState($order))
-            $status = 'canceled';
-        else if ($this->isInClosedState($order))
-            $status = 'closed';
-=======
         if ($this->isInCompletedState($order)) {
             $status = 'completed';
         }
@@ -415,7 +304,6 @@ class OrderRepository extends Repository
         } elseif ($this->isInClosedState($order)) {
             $status = 'closed';
         }
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 
         $order->status = $status;
         $order->save();
@@ -423,10 +311,7 @@ class OrderRepository extends Repository
 
     /**
      * @param mixed $order
-<<<<<<< HEAD
-=======
      *
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
      * @return mixed
      */
     public function collectTotals($order)
@@ -485,8 +370,4 @@ class OrderRepository extends Repository
 
         return $order;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719

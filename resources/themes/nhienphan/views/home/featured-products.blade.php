@@ -1,4 +1,4 @@
-@if (app('Webkul\Product\Repositories\ProductRepository')->getFeaturedProducts( 8 )->count())
+@if (app('Webkul\Product\Repositories\ProductRepository')->getFeaturedProducts()->count())
     <section class="featured-products">
 
         <div class="featured-heading">

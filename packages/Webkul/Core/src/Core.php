@@ -211,9 +211,6 @@ class Core
         if ($locale)
             return $locale;
 
-<<<<<<< HEAD
-        return $locale = $this->localeRepository->findOneByField('code', app()->getLocale());
-=======
         $locale = $this->localeRepository->findOneByField('code', app()->getLocale());
 
         if(!$locale) {
@@ -221,7 +218,6 @@ class Core
         }
 
         return $locale;
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
     }
 
     /**

@@ -36,11 +36,7 @@ return [
         'sqlite' => [
             'driver' => 'sqlite',
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
-<<<<<<< HEAD
-            'prefix' => '',
-=======
             'prefix' => env('DB_PREFIX'),
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
         ],
 
         'mysql' => [
@@ -53,11 +49,7 @@ return [
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
-<<<<<<< HEAD
-            'prefix' => '',
-=======
             'prefix' => env('DB_PREFIX'),
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
             'strict' => false,
             'engine' => 'InnoDB ROW_FORMAT=DYNAMIC',
         ],
@@ -70,11 +62,7 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
-<<<<<<< HEAD
-            'prefix' => '',
-=======
             'prefix' => env('DB_PREFIX'),
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],

@@ -278,11 +278,6 @@ Route::group(['middleware' => ['web']], function () {
                 Route::post('/products/upload-file/{id}', 'Webkul\Product\Http\Controllers\ProductController@uploadLink')->name('admin.catalog.products.upload_link');
 
                 Route::post('/products/upload-sample/{id}', 'Webkul\Product\Http\Controllers\ProductController@uploadSample')->name('admin.catalog.products.upload_sample');
-<<<<<<< HEAD
-                
-=======
-
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                 //product delete
                 Route::post('/products/delete/{id}', 'Webkul\Product\Http\Controllers\ProductController@destroy')->name('admin.catalog.products.delete');
 
@@ -764,11 +759,6 @@ Route::group(['middleware' => ['web']], function () {
                 //     'redirect' => 'admin.cms.index'
                 // ])->name('admin.cms.delete');
             });
-<<<<<<< HEAD
-        });
-    });
-});
-=======
 
             // Development settings
             Route::prefix('development')->group(function () {
@@ -778,4 +768,3 @@ Route::group(['middleware' => ['web']], function () {
         });
     });
 });
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
