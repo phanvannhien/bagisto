@@ -59,23 +59,12 @@ class WishlistController extends Controller
 
     /**
      * Displays the listing resources if the customer having items in wishlist.
-<<<<<<< HEAD
-     * 
-=======
      *
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
      * @return \Illuminate\View\View
      */
     public function index()
     {
-<<<<<<< HEAD
-        $wishlistItems = $this->wishlistRepository->findWhere([
-            'channel_id' => core()->getCurrentChannel()->id,
-            'customer_id' => auth()->guard('customer')->user()->id]
-        );
-=======
         $wishlistItems = $this->wishlistRepository->getCustomerWhishlist();
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 
         return view($this->_config['view'])->with('items', $wishlistItems);
     }

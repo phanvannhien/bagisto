@@ -22,11 +22,7 @@ class Configurable extends AbstractType
 
     /**
      * These blade files will be included in product edit page
-<<<<<<< HEAD
-     * 
-=======
      *
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
      * @var array
      */
     protected $additionalViews = [
@@ -52,8 +48,6 @@ class Configurable extends AbstractType
     protected $showQuantityBox = true;
 
     /**
-<<<<<<< HEAD
-=======
      * Has child products aka variants
      *
      * @var boolean
@@ -61,7 +55,6 @@ class Configurable extends AbstractType
     protected $hasVariants = true;
 
     /**
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
      * @param array $data
      * @return Product
      */
@@ -150,11 +143,6 @@ class Configurable extends AbstractType
                 ];
         }
 
-<<<<<<< HEAD
-        $variant = $this->productRepository->getModel()->create([
-                'parent_id' => $product->id,
-                'type' => 'simple',
-=======
         $typeOfVariants = 'simple';
         $productInstance = app(config('product_types.' . $product->type . '.class'));
         if (isset($productInstance->variantsType) && ! in_array($productInstance->variantsType , ['bundle', 'configurable', 'grouped'])) {
@@ -164,7 +152,6 @@ class Configurable extends AbstractType
         $variant = $this->productRepository->getModel()->create([
                 'parent_id' => $product->id,
                 'type' => $typeOfVariants,
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                 'attribute_family_id' => $product->attribute_family_id,
                 'sku' => $data['sku'],
             ]);
@@ -442,11 +429,6 @@ class Configurable extends AbstractType
 
         return $products;
     }
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
     /**
      *
      * @param array $options1
@@ -481,11 +463,7 @@ class Configurable extends AbstractType
             ];
         }
 
-<<<<<<< HEAD
-        return $data;        
-=======
         return $data;
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
     }
 
     /**

@@ -17,12 +17,8 @@
 
                 <div class="page-title">
                     <h1>
-<<<<<<< HEAD
-                        <i class="icon angle-left-icon back-link" onclick="history.length > 1 ? history.go(-1) : window.location = '{{ url('/admin/dashboard') }}';"></i>
-=======
                         <i class="icon angle-left-icon back-link"
                            onclick="history.length > 1 ? history.go(-1) : window.location = '{{ url('/admin/dashboard') }}';"></i>
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 
                         {{ __('admin::app.catalog.products.edit-title') }}
                     </h1>
@@ -31,12 +27,8 @@
                         <select class="control" id="channel-switcher" name="channel">
                             @foreach (core()->getAllChannels() as $channelModel)
 
-<<<<<<< HEAD
-                                <option value="{{ $channelModel->code }}" {{ ($channelModel->code) == $channel ? 'selected' : '' }}>
-=======
                                 <option
                                     value="{{ $channelModel->code }}" {{ ($channelModel->code) == $channel ? 'selected' : '' }}>
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                                     {{ $channelModel->name }}
                                 </option>
 
@@ -48,12 +40,8 @@
                         <select class="control" id="locale-switcher" name="locale">
                             @foreach (core()->getAllLocales() as $localeModel)
 
-<<<<<<< HEAD
-                                <option value="{{ $localeModel->code }}" {{ ($localeModel->code) == $locale ? 'selected' : '' }}>
-=======
                                 <option
                                     value="{{ $localeModel->code }}" {{ ($localeModel->code) == $locale ? 'selected' : '' }}>
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                                     {{ $localeModel->name }}
                                 </option>
 
@@ -81,31 +69,14 @@
 
                         {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.before', ['product' => $product]) !!}
 
-<<<<<<< HEAD
-                        <accordian :title="'{{ __($attributeGroup->name) }}'" :active="{{$index == 0 ? 'true' : 'false'}}">
-=======
                         <accordian :title="'{{ __($attributeGroup->name) }}'"
                                    :active="{{$index == 0 ? 'true' : 'false'}}">
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                             <div slot="body">
                                 {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.controls.before', ['product' => $product]) !!}
 
                                 @foreach ($customAttributes as $attribute)
 
                                     <?php
-<<<<<<< HEAD
-                                        $validations = [];
-
-                                        if ($attribute->is_required)
-                                            array_push($validations, 'required');
-
-                                        if ($attribute->type == 'price')
-                                            array_push($validations, 'decimal');
-
-                                        array_push($validations, $attribute->validation);
-
-                                        $validations = implode('|', array_filter($validations));
-=======
                                     $validations = [];
 
                                     if ($attribute->is_required) {
@@ -119,23 +90,16 @@
                                     array_push($validations, $attribute->validation);
 
                                     $validations = implode('|', array_filter($validations));
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                                     ?>
 
                                     @if (view()->exists($typeView = 'admin::catalog.products.field-types.' . $attribute->type))
 
-<<<<<<< HEAD
-                                        <div class="control-group {{ $attribute->type }}" @if ($attribute->type == 'multiselect') :class="[errors.has('{{ $attribute->code }}[]') ? 'has-error' : '']" @else :class="[errors.has('{{ $attribute->code }}') ? 'has-error' : '']" @endif>
-
-                                            <label for="{{ $attribute->code }}" {{ $attribute->is_required ? 'class=required' : '' }}>
-=======
                                         <div class="control-group {{ $attribute->type }}"
                                              @if ($attribute->type == 'multiselect') :class="[errors.has('{{ $attribute->code }}[]') ? 'has-error' : '']"
                                              @else :class="[errors.has('{{ $attribute->code }}') ? 'has-error' : '']" @endif>
 
                                             <label
                                                 for="{{ $attribute->code }}" {{ $attribute->is_required ? 'class=required' : '' }}>
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                                                 {{ $attribute->admin_name }}
 
                                                 @if ($attribute->type == 'price')
@@ -143,15 +107,6 @@
                                                 @endif
 
                                                 <?php
-<<<<<<< HEAD
-                                                    $channel_locale = [];
-
-                                                    if ($attribute->value_per_channel)
-                                                        array_push($channel_locale, $channel);
-
-                                                    if ($attribute->value_per_locale)
-                                                        array_push($channel_locale, $locale);
-=======
                                                 $channel_locale = [];
 
                                                 if ($attribute->value_per_channel) {
@@ -161,7 +116,6 @@
                                                 if ($attribute->value_per_locale) {
                                                     array_push($channel_locale, $locale);
                                                 }
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                                                 ?>
 
                                                 @if (count($channel_locale))
@@ -171,13 +125,9 @@
 
                                             @include ($typeView)
 
-<<<<<<< HEAD
-                                            <span class="control-error"  @if ($attribute->type == 'multiselect') v-if="errors.has('{{ $attribute->code }}[]')" @else  v-if="errors.has('{{ $attribute->code }}')"  @endif>
-=======
                                             <span class="control-error"
                                                   @if ($attribute->type == 'multiselect') v-if="errors.has('{{ $attribute->code }}[]')"
                                                   @else  v-if="errors.has('{{ $attribute->code }}')"  @endif>
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                                                 @if ($attribute->type == 'multiselect')
                                                     @{{ errors.first('{!! $attribute->code !!}[]') }}
                                                 @else
@@ -200,27 +150,20 @@
 
                 @endforeach
 
-<<<<<<< HEAD
-=======
                 {!! view_render_event(
                   'bagisto.admin.catalog.product.edit_form_accordian.additional_views.before',
                    ['product' => $product])
                 !!}
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                 @foreach ($product->getTypeInstance()->getAdditionalViews() as $view)
 
                     @include ($view)
 
                 @endforeach
-<<<<<<< HEAD
-                
-=======
 
                 {!! view_render_event(
                   'bagisto.admin.catalog.product.edit_form_accordian.additional_views.after',
                    ['product' => $product])
                 !!}
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
             </div>
 
         </form>
@@ -251,8 +194,4 @@
             });
         });
     </script>
-<<<<<<< HEAD
 @endpush
-=======
-@endpush
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719

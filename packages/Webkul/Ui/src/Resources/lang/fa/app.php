@@ -31,11 +31,7 @@ return [
         'true' => 'صحیح / فعال',
         'false' => 'غلط / غیرفعال',
         'between' => 'ما بین',
-<<<<<<< HEAD
-        'apply' => 'درخواست'
-=======
         'apply' => 'درخواست',
         'items-per-page' => 'Items Per Page',
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
     ]
 ];

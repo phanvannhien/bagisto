@@ -3,10 +3,7 @@
 namespace Webkul\API\Http\Resources\Catalog;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-<<<<<<< HEAD
-=======
 use Webkul\Product\Helpers\ProductType;
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 
 class Product extends JsonResource
 {
@@ -48,11 +45,7 @@ class Product extends JsonResource
             'base_image' => $this->productImageHelper->getProductBaseImage($product),
             'variants' => Self::collection($this->variants),
             'in_stock' => $product->haveSufficientQuantity(1),
-<<<<<<< HEAD
-            $this->mergeWhen($product->type == 'configurable', [
-=======
             $this->mergeWhen($product->getTypeInstance()->isComposite(), [
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                 'super_attributes' => Attribute::collection($product->super_attributes),
             ]),
             'special_price' => $this->when(

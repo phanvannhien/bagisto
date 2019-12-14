@@ -120,13 +120,10 @@ class ConfigurationController extends Controller
     {
         Event::fire('core.configuration.save.before');
 
-<<<<<<< HEAD
-=======
         $this->validate(request(), [
             'general.design.admin_logo.logo_image'  => 'mimes:jpeg,bmp,png,jpg'
         ]);
 
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
         $this->coreConfigRepository->create(request()->all());
 
         Event::fire('core.configuration.save.after');

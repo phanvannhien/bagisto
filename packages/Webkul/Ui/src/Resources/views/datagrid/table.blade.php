@@ -130,8 +130,6 @@
                             </ul>
                         </div>
                     </div>
-<<<<<<< HEAD
-=======
 
                     <div class="dropdown-filters per-page">
                         <div class="control-group">
@@ -148,7 +146,6 @@
                             </select>
                         </div>
                     </div>
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                 </div>
 
                 <div class="filter-row-two">
@@ -217,19 +214,13 @@
                         stringConditionSelect: false,
                         booleanConditionSelect: false,
                         numberConditionSelect: false,
-<<<<<<< HEAD
-                        datetimeConditionSelect: false
-=======
                         datetimeConditionSelect: false,
                         perPage: 10,
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                     }
                 },
 
                 mounted: function() {
                     this.setParamsAndUrl();
-<<<<<<< HEAD
-=======
 
                     if (this.filters.length) {
                         for (let i = 0; i < this.filters.length; i++) {
@@ -238,7 +229,6 @@
                             }
                         }
                     }
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                 },
 
                 methods: {
@@ -548,8 +538,6 @@
                         newParams = '';
 
                         for(i = 0; i < this.filters.length; i++) {
-<<<<<<< HEAD
-=======
                             if (this.filters[i].column == 'status') {
                                 if (this.filters[i].val.includes("True")) {
                                     this.filters[i].val = 1;
@@ -558,7 +546,6 @@
                                 }
                             }
 
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                             if (i == 0) {
                                 newParams = '?' + this.filters[i].column + '[' + this.filters[i].cond + ']' + '=' + this.filters[i].val;
                             } else {
@@ -647,19 +634,12 @@
                     select: function() {
                         this.allSelected = false;
 
-<<<<<<< HEAD
-                        if(this.dataIds.length == 0)
-                            this.massActionsToggle = false;
-                        else
-                            this.massActionsToggle = true;
-=======
                         if (this.dataIds.length == 0) {
                             this.massActionsToggle = false;
                             this.massActionType = null;
                         } else {
                             this.massActionsToggle = true;
                         }
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                     },
 
                     //triggered when master checkbox is clicked
@@ -727,8 +707,6 @@
                         this.massActionsToggle = false;
 
                         this.allSelected = false;
-<<<<<<< HEAD
-=======
 
                         this.massActionType = null;
                     },
@@ -743,7 +721,6 @@
                         this.filters.push({"column":"perPage","cond":"eq","val": e.target.value});
 
                         this.makeURL();
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                     }
                 }
             });

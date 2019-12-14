@@ -13,11 +13,7 @@ return [
 
         'no-records' => 'لا توجد سجلات',
         'filter-fields-missing' => 'بعض الحقل المطلوب هو لاغ ، رجاء تفقد عمود ، حالة و قيمة صحيح',
-<<<<<<< HEAD
-        'click_on_action' => 'هل تريد حقا أن تؤدي هذا العمل؟'
-=======
         'click_on_action' => 'هل تريد حقا أن تؤدي هذا العمل؟',
         'items-per-page' => 'Items Per Page',
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
     ]
 ];

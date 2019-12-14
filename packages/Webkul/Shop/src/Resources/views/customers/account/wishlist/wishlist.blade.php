@@ -22,11 +22,6 @@
                         <a href="{{ route('customer.wishlist.removeall') }}">{{ __('shop::app.customer.account.wishlist.deleteall') }}</a>
                     </div>
                 @endif
-<<<<<<< HEAD
-                
-=======
-
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                 <div class="horizontal-rule"></div>
             </div>
 
@@ -47,17 +42,10 @@
                                 <div class="info">
                                     <div class="product-name">
                                         {{ $item->product->name }}
-<<<<<<< HEAD
-                                    
-                                        @if (isset($item->additional['attributes']))
-                                            <div class="item-options">
-                                                
-=======
 
                                         @if (isset($item->additional['attributes']))
                                             <div class="item-options">
 
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                                                 @foreach ($item->additional['attributes'] as $attribute)
                                                     <b>{{ $attribute['attribute_name'] }} : </b>{{ $attribute['option_label'] }}</br>
                                                 @endforeach
@@ -87,13 +75,10 @@
 
                         <div class="horizontal-rule mb-10 mt-10"></div>
                     @endforeach
-<<<<<<< HEAD
-=======
 
                     <div class="bottom-toolbar">
                         {{ $items->links()  }}
                     </div>
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                 @else
                     <div class="empty">
                         {{ __('customer::app.wishlist.empty') }}

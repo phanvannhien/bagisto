@@ -142,11 +142,6 @@ abstract class DataGrid
     public function __construct()
     {
         $this->invoker = $this;
-<<<<<<< HEAD
-
-        $this->itemsPerPage = core()->getConfigData('general.general.locale_options.admin_page_limit') ?: $this->itemsPerPage;
-=======
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
     }
 
     /**
@@ -157,15 +152,12 @@ abstract class DataGrid
         $parsedUrl = [];
         $unparsed = url()->full();
 
-<<<<<<< HEAD
-=======
         $route = request()->route() ? request()->route()->getName() : "";
 
         if ($route == 'admin.datagrid.export') {
             $unparsed = url()->previous();
         }
 
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
         if (count(explode('?', $unparsed)) > 1) {
             $to_be_parsed = explode('?', $unparsed)[1];
 
@@ -173,13 +165,10 @@ abstract class DataGrid
             unset($parsedUrl['page']);
         }
 
-<<<<<<< HEAD
-=======
         $this->itemsPerPage = isset($parsedUrl['perPage']) ? $parsedUrl['perPage']['eq'] : $this->itemsPerPage;
 
         unset($parsedUrl['perPage']);
 
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
         return $parsedUrl;
     }
 

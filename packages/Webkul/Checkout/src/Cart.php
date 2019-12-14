@@ -138,11 +138,7 @@ class Cart {
         if (! $cart && ! $cart = $this->create($data))
             return;
 
-<<<<<<< HEAD
-        $product = $this->productRepository->findOneByField('id',  (int)$productId);
-=======
         $product = $this->productRepository->findOneByField('id', $productId);
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 
         $cartProducts = $product->getTypeInstance()->prepareForCart($data);
 

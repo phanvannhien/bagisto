@@ -3,10 +3,7 @@
 namespace Webkul\Sales\Repositories;
 
 use Illuminate\Container\Container as App;
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Facades\Event;
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 use Webkul\Core\Eloquent\Repository;
 use Webkul\Sales\Contracts\OrderItem;
 
@@ -55,11 +52,6 @@ class OrderItemRepository extends Repository
 
         $totalInvoiced = $baseTotalInvoiced = 0;
         $taxInvoiced = $baseTaxInvoiced = 0;
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
         $totalRefunded = $baseTotalRefunded = 0;
         $taxRefunded = $baseTaxRefunded = 0;
 

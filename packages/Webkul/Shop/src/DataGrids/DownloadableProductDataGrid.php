@@ -22,11 +22,7 @@ class DownloadableProductDataGrid extends DataGrid
         $queryBuilder = DB::table('downloadable_link_purchased')
                 ->leftJoin('orders', 'downloadable_link_purchased.order_id', '=', 'orders.id')
                 ->addSelect('downloadable_link_purchased.*', 'orders.increment_id')
-<<<<<<< HEAD
-                ->addSelect(DB::raw('(downloadable_link_purchased.download_bought - downloadable_link_purchased.download_used) as remaining_downloads'))
-=======
                 ->addSelect(DB::raw('('.DB::getTablePrefix().'downloadable_link_purchased.download_bought - '.DB::getTablePrefix().'downloadable_link_purchased.download_used) as remaining_downloads'))
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                 ->where('downloadable_link_purchased.customer_id', auth()->guard('customer')->user()->id);
 
         $this->addFilter('status', 'downloadable_link_purchased.status');
@@ -101,11 +97,6 @@ class DownloadableProductDataGrid extends DataGrid
             'wrapper' => function ($value) {
                 if (! $value->download_bought)
                     return trans('shop::app.customer.account.downloadable_products.unlimited');
-<<<<<<< HEAD
-                
-=======
-
->>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                 return $value->remaining_downloads;
             },
         ]);
