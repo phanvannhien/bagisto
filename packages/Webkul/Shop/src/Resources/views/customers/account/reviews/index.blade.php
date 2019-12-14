@@ -19,7 +19,11 @@
 
                 @if (count($reviews) > 1)
                     <div class="account-action">
+<<<<<<< HEAD
                         <a href="{{ route('customer.review.deleteall') }}">{{ __('shop::app.wishlist.deleteall') }}</a>
+=======
+                        <a href="{{ route('customer.review.deleteall') }}">{{ __('shop::app.customer.account.wishlist.deleteall') }}</a>
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                     </div>
                 @endif
 

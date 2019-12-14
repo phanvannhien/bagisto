@@ -257,7 +257,11 @@ class ProductRepository extends Repository
      *
      * @return Collection
      */
+<<<<<<< HEAD
     public function getFeaturedProducts( $limit = 4 )
+=======
+    public function getFeaturedProducts()
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
     {
         $results = app('Webkul\Product\Repositories\ProductFlatRepository')->scopeQuery(function($query) {
                 $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
@@ -272,7 +276,11 @@ class ProductRepository extends Repository
                         ->where('product_flat.channel', $channel)
                         ->where('product_flat.locale', $locale)
                         ->orderBy('product_id', 'desc');
+<<<<<<< HEAD
             })->paginate( $limit );
+=======
+            })->paginate(4);
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 
         return $results;
     }

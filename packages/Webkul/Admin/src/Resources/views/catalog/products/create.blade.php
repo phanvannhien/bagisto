@@ -64,7 +64,11 @@
                             </select>
 
                             @if ($familyId)
+<<<<<<< HEAD
                                 <input type="hidden" name="type" value="configurable"/>
+=======
+                                <input type="hidden" name="type" value="{{ app('request')->input('type') }}"/>
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                             @endif
                             <span class="control-error" v-if="errors.has('type')">@{{ errors.first('type') }}</span>
                         </div>

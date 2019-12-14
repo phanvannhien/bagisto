@@ -31,6 +31,11 @@ return [
         'true' => 'Verdadeiro / Ativo',
         'false' => 'Falso / Inativo',
         'between' => 'Está entre',
+<<<<<<< HEAD
         'apply' => 'Aplicar'
+=======
+        'apply' => 'Aplicar',
+        'items-per-page' => 'Items Per Page',
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
     ]
 ];

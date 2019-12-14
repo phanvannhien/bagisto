@@ -35,7 +35,8 @@ return [
         'description' => 'OnePay payment',
         'class' => '\Webkul\Payment\Payment\OnePay',
         'sandbox' => true,
-        'active' => true
+        'active' => true,
+        'sort' => 4
     ]
 
 ];

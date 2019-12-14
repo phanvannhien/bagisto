@@ -4,6 +4,10 @@ namespace Webkul\Product\Http\Controllers;
 
 use Illuminate\Support\Facades\Event;
 use Webkul\Product\Http\Requests\ProductForm;
+<<<<<<< HEAD
+=======
+use Webkul\Product\Helpers\ProductType;
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 use Webkul\Category\Repositories\CategoryRepository;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\Product\Repositories\ProductDownloadableLinkRepository;
@@ -140,13 +144,21 @@ class ProductController extends Controller
     public function store()
     {
         if (! request()->get('family')
+<<<<<<< HEAD
             && request()->input('type') == 'configurable'
+=======
+            && ProductType::hasVariants(request()->input('type'))
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
             && request()->input('sku') != '') {
 
             return redirect(url()->current() . '?type=' . request()->input('type') . '&family=' . request()->input('attribute_family_id') . '&sku=' . request()->input('sku'));
         }
 
+<<<<<<< HEAD
         if (request()->input('type') == 'configurable'
+=======
+        if (ProductType::hasVariants(request()->input('type'))
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
             && (! request()->has('super_attributes')
             || ! count(request()->get('super_attributes')))) {
 

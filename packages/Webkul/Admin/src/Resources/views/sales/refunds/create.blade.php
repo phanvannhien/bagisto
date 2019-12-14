@@ -241,14 +241,22 @@
                     <tbody>
                         @foreach ($order->items as $item)
                             <tr>
+<<<<<<< HEAD
                                 <td>{{ $item->type == 'configurable' ? $item->child->sku : $item->sku }}</td>
+=======
+                                <td>{{ Webkul\Product\Helpers\ProductType::hasVariants($item->type) ? $item->child->sku : $item->sku }}</td>
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 
                                 <td>
                                     {{ $item->name }}
 
                                     @if (isset($item->additional['attributes']))
                                         <div class="item-options">
+<<<<<<< HEAD
                                             
+=======
+
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                                             @foreach ($item->additional['attributes'] as $attribute)
                                                 <b>{{ $attribute['attribute_name'] }} : </b>{{ $attribute['option_label'] }}</br>
                                             @endforeach
@@ -417,7 +425,11 @@
                             if (! response.data) {
                                 window.flashMessages = [{
                                     'type': 'alert-error',
+<<<<<<< HEAD
                                     'message': "{{ __('admin::app.sales.refunds.invalid-qty') }}" 
+=======
+                                    'message': "{{ __('admin::app.sales.refunds.invalid-qty') }}"
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                                 }];
 
                                 this_this.$root.addFlashMessages()

@@ -182,6 +182,15 @@ return [
         'sort' => 2,
         'icon-class' => ''
     ], [
+<<<<<<< HEAD
+=======
+        'key' => 'settings.development',
+        'name' => 'admin::app.settings.development.title',
+        'route' => 'admin.development.index',
+        'sort' => 8,
+        'icon-class' => ''
+    ],[
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
         'key' => 'promotions',
         'name' => 'admin::app.layouts.promotion',
         'route' => 'admin.cart-rule.index',

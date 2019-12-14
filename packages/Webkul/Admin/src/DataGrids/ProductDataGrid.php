@@ -25,7 +25,11 @@ class ProductDataGrid extends DataGrid
         ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
         ->leftJoin('attribute_families', 'products.attribute_family_id', '=', 'attribute_families.id')
         ->leftJoin('product_inventories', 'product_flat.product_id', '=', 'product_inventories.product_id')
+<<<<<<< HEAD
         ->select('product_flat.product_id as product_id', 'product_flat.sku as product_sku', 'product_flat.name as product_name', 'products.type as product_type', 'product_flat.status', 'product_flat.price', 'attribute_families.name as attribute_family', DB::raw('SUM(product_inventories.qty) as quantity'))
+=======
+        ->select('product_flat.product_id as product_id', 'product_flat.sku as product_sku', 'product_flat.name as product_name', 'products.type as product_type', 'product_flat.status', 'product_flat.price', 'attribute_families.name as attribute_family', DB::raw('SUM('.DB::getTablePrefix().'product_inventories.qty) as quantity'))
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
         ->where('channel', core()->getCurrentChannelCode())
         ->where('locale', app()->getLocale())
         ->groupBy('product_flat.product_id');
@@ -152,7 +156,11 @@ class ProductDataGrid extends DataGrid
     public function prepareMassActions() {
         $this->addMassAction([
             'type' => 'delete',
+<<<<<<< HEAD
             'label' => 'Delete',            
+=======
+            'label' => 'Delete',
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
             'action' => route('admin.catalog.products.massdelete'),
             'method' => 'DELETE'
         ]);

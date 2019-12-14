@@ -6,6 +6,10 @@ use Webkul\Discount\Repositories\CatalogRuleRepository as CatalogRule;
 use Webkul\Discount\Repositories\CatalogRuleProductsRepository as CatalogRuleProducts;
 use Webkul\Discount\Repositories\CatalogRuleProductsPriceRepository as CatalogRuleProductsPrice;
 use Webkul\Discount\Helpers\Catalog\ConvertXToProductId as ConvertX;
+<<<<<<< HEAD
+=======
+use Webkul\Product\Helpers\ProductType;
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 use Webkul\Product\Repositories\ProductRepository as Product;
 use Webkul\Discount\Helpers\Catalog\Sale;
 
@@ -451,7 +455,11 @@ class Apply extends Sale
         foreach ($productIDs as $productID) {
             $product = $products->find($productID);
 
+<<<<<<< HEAD
             if ($product->type == 'configurable') {
+=======
+            if (ProductType::hasVariants($product->type)) {
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                 $variants = $product->variants;
 
                 foreach($variants as $variant) {

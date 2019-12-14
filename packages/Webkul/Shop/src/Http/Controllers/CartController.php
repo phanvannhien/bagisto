@@ -77,7 +77,6 @@ class CartController extends Controller
      */
     public function add($id)
     {
-     
         try {
             $result = Cart::addProduct($id, request()->all());
 

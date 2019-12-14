@@ -46,7 +46,11 @@
 
                 // reading env content
                 $data = file($envFile);
+<<<<<<< HEAD
                 $databaseArray = ['DB_HOST', 'DB_DATABASE', 'DB_USERNAME', 'DB_PASSWORD', 'DB_CONNECTION','DB_PORT'];
+=======
+                $databaseArray = ['DB_HOST', 'DB_DATABASE', 'DB_USERNAME', 'DB_PASSWORD', 'DB_CONNECTION','DB_PORT', 'DB_PREFIX'];
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                 $key = $value = [];
 
                 if ($data) {
@@ -89,7 +93,12 @@
 
                     if (!$conn->connect_error) {
                         // retrieving admin entry
+<<<<<<< HEAD
                         $sql = "SELECT id, name FROM admins";
+=======
+                        $prefix = $databaseData['DB_PREFIX'].'admins';
+                        $sql = "SELECT id, name FROM $prefix";
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
                         $result = $conn->query($sql);
 
                         if ($result) {

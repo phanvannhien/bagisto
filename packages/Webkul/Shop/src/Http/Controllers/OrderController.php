@@ -60,7 +60,11 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      *
+<<<<<<< HEAD
      * @return \Illuminate\View\View 
+=======
+     * @return \Illuminate\View\View
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
     */
     public function index()
     {
@@ -71,7 +75,11 @@ class OrderController extends Controller
      * Show the view for the specified resource.
      *
      * @param  int  $id
+<<<<<<< HEAD
      * @return \Illuminate\View\View 
+=======
+     * @return \Illuminate\View\View
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
      */
     public function view($id)
     {

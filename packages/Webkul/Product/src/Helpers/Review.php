@@ -40,7 +40,11 @@ class Review extends AbstractProduct
         if(array_key_exists($product->id, $avgRating))
             return $avgRating[$product->id];
 
+<<<<<<< HEAD
         return $avgRating[$product->id] = number_format(round($product->reviews()->where('status', 'approved')->average('rating'), 2), 1);
+=======
+        return $avgRating[$product->id] = number_format(round($product->reviews()->where('status', 'approved')->avg('rating'), 2), 1);
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
     }
 
     /**

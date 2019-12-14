@@ -584,7 +584,10 @@ return [
             'title' => 'Idiomas',
             'add-title' => 'Add Idioma',
             'edit-title' => 'Editar Idioma',
+<<<<<<< HEAD
             'add-title' => 'Add Idioma',
+=======
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
             'save-btn-title' => 'Salvar Idioma',
             'general' => 'Geral',
             'code' => 'Código',
@@ -753,6 +756,12 @@ return [
             'update-error' => 'Erro! Taxas de Impostos Não Poderam ser Atualizadas',
             'delete' => 'Taxas de Impostos Excluídas com Sucesso',
             'atleast-one' => 'Não é Possível Excluir a Última Taxa de Impostos'
+<<<<<<< HEAD
+=======
+        ],
+        'development' => [
+            'title' => 'Desenvolvimento',
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
         ]
     ],
     'customers' => [

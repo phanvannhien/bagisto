@@ -5,7 +5,10 @@
 /public/js
 /public/vendor
 /public/themes
+<<<<<<< HEAD
 /storage/*.key
+=======
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
 /vendor
 /.idea
 /.vscode
@@ -20,3 +23,9 @@ composer.lock
 yarn.lock
 package-lock.json
 yarn.lock
+<<<<<<< HEAD
+=======
+.php_cs.cache
+storage/
+storage/*.key
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719

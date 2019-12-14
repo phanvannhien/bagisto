@@ -62,8 +62,12 @@ class WishlistRepository extends Repository
         return $this->model->find($id)->item_wishlist;
     }
 
+<<<<<<< HEAD
 
      /**
+=======
+    /**
+>>>>>>> 3dc905331bdf7f31caf86246f33b94353b5a6719
      * get customer wishlist Items.
      *
      * @return mixed
